@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>LovatFlix</title>
+  <link rel="stylesheet" type="text/css" href="components/reset.css">
+  <link rel="stylesheet" type="text/css" href="components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="components/container.css">
+  <link rel="stylesheet" type="text/css" href="components/grid.css">
+  <link rel="stylesheet" type="text/css" href="components/header.css">
+  <link rel="stylesheet" type="text/css" href="components/image.css">
+  <link rel="stylesheet" type="text/css" href="components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="components/divider.css">
+  <link rel="stylesheet" type="text/css" href="components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="components/segment.css">
+  <link rel="stylesheet" type="text/css" href="components/button.css">
+  <link rel="stylesheet" type="text/css" href="components/list.css">
+  <link rel="stylesheet" type="text/css" href="components/icon.css">
+  <link rel="stylesheet" type="text/css" href="components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="components/transition.css">
+
+  <style type="text/css">
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="components/visibility.js"></script>
+  <script src="components/sidebar.js"></script>
+  <script src="components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="item" href="index.html">Home</a>
+    <a class="item" href="filmes.html">Filmes</a>
+    <a class="active item" href="series.html">Séries</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button">Entrar</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button">Cadastrar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="item" href="index.html">Home</a>
+  <a class="item" href="filmes.html">Filmes</a>
+  <a class="active item" href="series.html">Séries</a>
+  <a class="item">Entrar</a>
+  <a class="item">Cadastrar</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="item" href="index.html">Home</a>
+        <a class="item" href="filmes.html">Filmes</a>
+        <a class="active item" href="series.html">Séries</a>
+        <div class="right item">
+          <a class="ui inverted button">Entrar</a>
+          <a class="ui inverted button">Cadastrar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        LovatFlix
+      </h1>
+      <h2>Assista filmes e séries, totalmente grátis.</h2>
+      <div class="ui huge primary button">Assistir Agora! <i class="right arrow icon"></i></div>
+    </div>
+
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">Harry Potter</h3>
+          <p>Harry Potter é uma série de sete romances de fantasia escrita pela autora britânica J. K. Rowling. A série narra as aventuras de um jovem chamado Harry James Potter, que descobre aos 11 anos de idade que é um bruxo ao ser convidado para estudar na Escola de Magia e Bruxaria de Hogwarts.</p>
+          <h3 class="ui header">Temática e conteúdo</h3>
+          <p>Por ser uma série na qual cada livro equivale a cerca de um ano de vida do protagonista, seu conteúdo amadurece conforme Harry cresce. Os leitores que começaram a ler a saga ainda muito jovens também vão amadurecendo enquanto lêem. A estrutura da história, inclusive, torna-se mais complexa e sofisticada a cada volume. Os livros de Rowling se passam nos anos 1990, na Inglaterra "trouxa" moderna, com carros, telefones e videogames. </p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="img/01.jpg" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Ver mais!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>Filmes e séríes, totalmente gratuito!</h3>
+          <p>100 filmes e séries</p>
+        </div>
+        <div class="column">
+          <h3>Seja VIP por 99,99 R$"</h3>
+          <p>
+            Mais de 2.000 filmes, séries e documentários.  
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Filmes de 2022: Confira quais são os lançamentos mais aguardados e bombásticos do próximo ano</h3>
+      <p>The Batman - Não há como negar: as expectativas estão altíssimas para The Batman. E um dos principais motivos para isso é a aguardada performance de Robert Pattinson, que vem conquistando muitos defensores antes mesmo da estreia. Quem dirige o longa é Matt Reeves, cineasta por trás de títulos marcantes como Planeta dos Macacos: O Confronto e Cloverfield: Monstro. Recentemente, um trailer empolgante com destaque para a Mulher-Gato de Zoe Kravitz foi disponibilizado, aumentando ainda mais a ansiedade dos fãs.</p>
+      <a class="ui large button">Ler mais</a>
+      <h4 class="ui horizontal header divider">
+        <a href="#">Inicio</a>
+      </h4>
+      <h3 class="ui header">Melhor série de todos os tempos</h3>
+      <p>House of the Dragon - a série se passa 200 antes do eventos de Game of Thrones e apresenta como o império Targeryan chegou ao fim. Em meio a uma luta por poder, os irmãos Aegon II e Rhaenyra almejam chegar ao trono de ferro custe o que custar.</p>
+      <a class="ui large button">ASSISTIR EM STREAMING</a>
+    </div>
+  </div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">Sobre</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Contato</a>
+            <a href="#" class="item">Rede Social</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Serviços</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Plano VIP</a>
+            <a href="#" class="item">Filmes Grátis</a>
+            <a href="#" class="item">Séries Grátis</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">O melhor do Cinema</h4>
+          <p>LovatFlix o seu cinema dentro de casa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
